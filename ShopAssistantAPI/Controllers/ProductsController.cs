@@ -20,7 +20,7 @@ namespace ShopAssistantAPI.Controllers
         // GET: api/Products
         public IQueryable<Product> GetProducts()
         {
-            return db.Products;
+            return db.Products.Include(p => p.ProdCategory);
         }
 
         // GET: api/Products/5
@@ -28,12 +28,28 @@ namespace ShopAssistantAPI.Controllers
         public async Task<IHttpActionResult> GetProduct(int id)
         {
             Product product = await db.Products.FindAsync(id);
+            db.Entry(product).Reference(p => p.ProdCategory).Load();
+            
             if (product == null)
             {
                 return NotFound();
             }
 
             return Ok(product);
+        }
+
+        // GET: api/Products?name
+        [ResponseType(typeof(List<Product>))]
+        public async Task<IHttpActionResult> GetProduct(string name)
+        {
+            List<Product> products = await db.Products.Include(p => p.ProdCategory).Where(p => p.Name.Contains(name)).ToListAsync();
+
+            if (products == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(products);
         }
 
         // PUT: api/Products/5

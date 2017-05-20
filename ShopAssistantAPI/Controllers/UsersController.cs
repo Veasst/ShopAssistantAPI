@@ -17,23 +17,17 @@ namespace ShopAssistantAPI.Controllers
     {
         private ShopAssistantAPIContext db = new ShopAssistantAPIContext();
 
-        // GET: api/Users
-        public IQueryable<User> GetUsers()
-        {
-            return db.Users;
-        }
-
-        // GET: api/Users/5
+        // GET: api/Users?login&pass
         [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> GetUser(int id)
+        public IHttpActionResult GetUser(string login, string pass)
         {
-            User user = await db.Users.FindAsync(id);
-            if (user == null)
+            IQueryable<User> users = db.Users.Where(u => (u.Login == login && u.Password == pass));
+            if (users.Count() == 0)
             {
                 return NotFound();
             }
 
-            return Ok(user);
+            return Ok(users.First());
         }
 
         // PUT: api/Users/5
