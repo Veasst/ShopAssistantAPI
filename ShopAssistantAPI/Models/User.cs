@@ -18,7 +18,7 @@ namespace ShopAssistantAPI.Models
         public int UserTypeId { get; set; }
         // Navigation property
         public UserType UserType { get; set; }
-        public int StoreId { get; set; }
+        public int? StoreId { get; set; }
         public Store Store { get; set; }
     }
 }

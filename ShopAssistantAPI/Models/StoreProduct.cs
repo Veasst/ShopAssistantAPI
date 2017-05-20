@@ -20,6 +20,5 @@ namespace ShopAssistantAPI.Models
         public decimal Weigh { get; set; }
         public decimal PPQ { get; set; }
         public decimal PPW { get; set; }
-        public DateTime ModifiedDate { get; set; }
     }
 }

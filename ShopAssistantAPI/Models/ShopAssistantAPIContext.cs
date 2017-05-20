@@ -17,6 +17,8 @@ namespace ShopAssistantAPI.Models
     
         public ShopAssistantAPIContext() : base("name=ShopAssistantAPIContext")
         {
+            this.Configuration.LazyLoadingEnabled = true;
+            this.Configuration.ProxyCreationEnabled = true;
         }
 
         public System.Data.Entity.DbSet<ShopAssistantAPI.Models.UserType> UserTypes { get; set; }
