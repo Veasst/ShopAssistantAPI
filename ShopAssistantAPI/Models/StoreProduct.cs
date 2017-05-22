@@ -9,11 +9,11 @@ namespace ShopAssistantAPI.Models
 {
     public class StoreProduct
     {
-        [Column(Order = 0), Key]
+        public int Id { get; set; }
         public int StoreId { get; set; }
         public Store Store { get; set; }
-        [Column(Order = 1), Key]
         public int ProdId { get; set; }
+        [ForeignKey("ProdId")]
         public Product Product { get; set; }
         public int Amount { get; set; }
         public decimal Price { get; set; }

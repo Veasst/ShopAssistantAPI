@@ -183,9 +183,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705201451285_Initial.cs" />
-    <Compile Include="Migrations\201705201451285_Initial.Designer.cs">
-      <DependentUpon>201705201451285_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201705221306029_init.cs" />
+    <Compile Include="Migrations\201705221306029_init.Designer.cs">
+      <DependentUpon>201705221306029_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ProdCategory.cs" />
@@ -222,8 +222,8 @@
     <Folder Include="Views\Shops\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705201451285_Initial.resx">
-      <DependentUpon>201705201451285_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705221306029_init.resx">
+      <DependentUpon>201705221306029_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
