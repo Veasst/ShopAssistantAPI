@@ -21,7 +21,7 @@ namespace ShopAssistantAPI.Controllers
         [ResponseType(typeof(User))]
         public IHttpActionResult GetUser(string login, string pass)
         {
-            IQueryable<User> users = db.Users.Where(u => (u.Login == login && u.Password == pass));
+            IQueryable<User> users = db.Users.Include(s => s.Store).Include(t => t.UserType).Where(u => (u.Login == login && u.Password == pass));
             if (users.Count() == 0)
             {
                 return NotFound();
